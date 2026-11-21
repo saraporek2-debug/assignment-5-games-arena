@@ -1,0 +1,453 @@
+/* ==========================================================
+   Games Arena - style.css
+   ========================================================== */
+
+/* ===== Variables ===== */
+:root {
+  --lime: #c8ff00;
+  --dark: #0b0e13;
+}
+
+/* ===== Base ===== */
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 80px; }
+
+body {
+  font-family: 'Chakra Petch', sans-serif;
+  background: var(--dark);
+  color: #fff;
+}
+body:focus { outline: none; }
+
+/* كل العناوين بخط Days One (له وزن واحد بس، فمنحطش bold عليه) */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-5,
+.title-font {
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+}
+
+/* ===== Helpers ===== */
+.text-lime { color: var(--lime); }
+.bg-lime   { background-color: var(--lime); }
+
+/* الخلفية #0B0E13 ورا Our Games و What We Do و Our Team */
+.section-dark { background: var(--dark); }
+
+/* الخطين اللي جنب عنوان كل سكشن */
+.tag-line {
+  width: 80px;
+  height: 2px;
+}
+.tag-line-start { background: linear-gradient(to right, transparent, var(--lime)); }
+.tag-line-end   { background: linear-gradient(to left,  transparent, var(--lime)); }
+
+/* ===== Buttons ===== */
+.btn-lime {
+  --bs-btn-color: #000;
+  --bs-btn-bg: var(--lime);
+  --bs-btn-border-color: var(--lime);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #b2e000;
+  --bs-btn-hover-border-color: #b2e000;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #b2e000;
+  --bs-btn-active-border-color: #b2e000;
+  --bs-btn-font-weight: 700;
+  --bs-btn-border-radius: .6rem;
+}
+.btn-lime:not(.btn-lg) {
+  --bs-btn-padding-x: 1.75rem;
+  --bs-btn-padding-y: .6rem;
+}
+
+.btn-outline-lime {
+  --bs-btn-color: var(--lime);
+  --bs-btn-border-color: var(--lime);
+  --bs-btn-border-width: 2px;
+  --bs-btn-border-radius: .6rem;
+  --bs-btn-font-weight: 700;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: var(--lime);
+  --bs-btn-hover-border-color: var(--lime);
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: var(--lime);
+  --bs-btn-active-border-color: var(--lime);
+}
+
+/* أزرار الأسهم الدايرية: رمادي، والـ lime وقت الهوفر */
+.btn-arrow {
+  --bs-btn-color: #8a94a6;
+  --bs-btn-border-color: #2a303c;
+  --bs-btn-border-width: 2px;
+  --bs-btn-hover-color: var(--lime);
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: var(--lime);
+  --bs-btn-active-color: var(--lime);
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: var(--lime);
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Navbar ===== */
+.game-navbar {
+  background: var(--dark);
+  padding: 14px 0;
+}
+
+.game-navbar .navbar-brand {
+  color: var(--lime);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.game-navbar .nav-link {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-inline: 8px;
+}
+
+.game-navbar .nav-link.active,
+.game-navbar .nav-link:hover {
+  color: var(--lime);
+}
+
+.nav-icon {
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 90vh;
+  padding: 80px 0;
+  color: #fff;
+  background:
+    linear-gradient(rgba(11, 14, 19, .85), rgba(11, 14, 19, .85)),
+    url('images/images/hero-bg.jpg') center / cover no-repeat fixed;
+}
+
+/* الموبايل: fixed مش بيشتغل صح */
+@media (max-width: 991px) {
+  .hero { background-attachment: scroll; }
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.25;
+}
+
+.hero-text {
+  max-width: 540px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #e5e5e5;
+}
+
+/* الصورة + إطارها المتدرج */
+.hero-img-wrap {
+  position: relative;
+  max-width: 520px;            /* صغّري/كبّري الرقم حسب التصميم */
+  margin-inline-start: auto;
+}
+
+.gradient-border {
+  padding: 4px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #c8ff00, #00e676);
+}
+
+.gradient-border img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* كارت Active Players */
+.stat-card {
+  position: absolute;
+  left: -30px;
+  bottom: -30px;
+  background: var(--dark);
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 12px;
+  padding: 16px 24px;
+}
+
+@media (max-width: 991px) {
+  .stat-card { left: 10px; bottom: -20px; }
+}
+
+/* ===== Our Games ===== */
+.game-card {
+  aspect-ratio: 4 / 3;
+  border: 3px solid transparent !important;
+  background: var(--dark);
+  transition: border-color .3s ease;
+}
+
+.game-card img {
+  transition: transform .3s ease, border-radius .3s ease;
+}
+
+/* .is-active بيتضاف بالـ JS لما تلمسي الكارت على الموبايل */
+.game-card:hover,
+.game-card.is-active { border-color: var(--lime) !important; }
+
+/* الصورة تدخل لجوا شوية وقت الهوفر */
+.game-card:hover img,
+.game-card.is-active img {
+  transform: scale(.94);
+  border-radius: 1rem;
+}
+
+.game-overlay {
+  inset: 3px;                  /* تفضل جوه الإطار */
+  border-radius: 1rem;
+  padding: 18px;
+  background: linear-gradient(to bottom, rgba(120, 200, 0, .15), rgba(200, 255, 0, .85));
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.game-card:hover .game-overlay,
+.game-card.is-active .game-overlay { opacity: 1; }
+
+.game-badge {
+  background: rgba(10, 9, 9, .55);
+  color: #fff;
+  font-size: .85rem;
+  font-weight: 700;
+  padding: 10px 16px;
+}
+
+/* ===== What We Do: كروت الخدمات ===== */
+.service-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, .08);
+  transition: border-color .3s ease;
+}
+
+/* مربع الأيقونة */
+.icon-box {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a2233;
+  color: var(--lime);
+  font-size: 2rem;
+  transition: background .2s ease, color .2s ease;
+}
+
+/* المثلثين في الركنين (مخفيين لحد الـ hover) */
+.service-card::before,
+.service-card::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: var(--lime);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.service-card::before {          /* فوق الشمال */
+  top: 20px;
+  left: 20px;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.service-card::after {           /* تحت اليمين */
+  bottom: 20px;
+  right: 20px;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.service-card:hover { border-color: var(--lime); }
+.service-card:hover .icon-box { background: var(--lime); color: #000; }
+.service-card:hover::before,
+.service-card:hover::after { opacity: 1; }
+
+/* ===== What We Do: شريط اللوجوهات ===== */
+.logos-wrap {
+  position: relative;
+  isolation: isolate;
+}
+
+/* التوهج الأخضر البيضاوي في الخلفية */
+.logos-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 10% -5% 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, rgba(200, 255, 0, .8) 0%, rgba(200, 255, 0, .12) 45%, transparent 70%);
+}
+
+/* الخط المضيء فوق */
+.glow-line {
+  width: 45%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--lime), transparent);
+  box-shadow: 0 0 18px 2px rgba(200, 255, 0, .6);
+}
+
+.logo-marquee {
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 15s linear infinite;
+}
+
+.logo-track.reverse { animation-direction: reverse; }
+
+.logo-track img {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  margin-inline-end: 20px;   /* margin بدل gap عشان اللفة تكمل بالظبط عند -50% */
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 575px) {
+  .logo-track img { width: 90px; height: 90px; }
+}
+
+/* ===== Our Team ===== */
+.team-card {
+  aspect-ratio: 9 / 10;
+  background: #1a1a1a;
+}
+
+/* الصورة الأساسية: أبيض وأسود دايماً */
+.team-card > img:first-child { filter: grayscale(1); }
+
+/* الطبقة الملونة: مخفية، وبتتكشف من تحت لفوق */
+.team-color {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path .5s ease;
+}
+.team-card:hover .team-color,
+.team-card.is-active .team-color { clip-path: inset(0); }
+
+/* شريط النص */
+.team-info {
+  padding-top: 3rem !important;
+  background: linear-gradient(to top, rgba(0, 0, 0, .85), transparent);
+  transition: background .4s ease;
+}
+
+.team-role { color: #fff; transition: color .3s ease; }
+
+/* الاسم المستعار عمودي على الجنب */
+.team-nick {
+  writing-mode: vertical-rl;
+  font-family: 'Days One', sans-serif;
+  letter-spacing: 2px;
+  color: #fff;
+  transition: color .3s ease;
+}
+
+/* Hover + الـ Bonus (backdrop-filter) */
+.team-card:hover .team-info,
+.team-card.is-active .team-info {
+  background: linear-gradient(to top, rgba(11, 14, 19, .55), rgba(11, 14, 19, .05));
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
+  /* الـ blur يتلاشى لفوق، فباقي الصورة يفضل واضح */
+  -webkit-mask-image: linear-gradient(to top, #000 55%, transparent);
+  mask-image: linear-gradient(to top, #000 55%, transparent);
+}
+
+.team-card:hover .team-role,
+.team-card:hover .team-nick,
+.team-card.is-active .team-role,
+.team-card.is-active .team-nick { color: var(--lime); }
+
+/* ===== Contact: متغيرات Bootstrap بالألوان بتاعتك ===== */
+.contact-section {
+  --bs-body-bg: #0C1017;                          /* خلفية السكشن */
+  --bs-body-color: #EEEEEE;                       /* النصوص جواه */
+  --bs-secondary-color: rgba(238, 238, 238, .6);
+  --bs-tertiary-bg: #202B3C;                      /* الكروت */
+  --bs-tertiary-bg-rgb: 32, 43, 60;               /* bg-body-tertiary بيقرا النسخة دي */
+  --bs-border-color: rgba(255, 255, 255, .1);
+
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+/* حقول الفورم: لونها من --bs-body-bg جوه كارت الفورم بس */
+.contact-form-card { --bs-body-bg: #374357; }
+
+/* الـ focus والـ checkbox بلون الـ lime (Bootstrap بيثبّتهم أزرق) */
+.contact-section .form-control:focus,
+.contact-section .form-select:focus,
+.contact-section .form-check-input:focus {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 .25rem rgba(200, 255, 0, .2);
+}
+
+.contact-section .form-check-input:checked[type=checkbox] {
+  background-color: var(--lime);
+  border-color: var(--lime);
+  --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+/* دوايِر الأيقونات والسوشيال */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.social-btn {
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+  transition: transform .3s ease;
+}
+.social-btn:hover { transform: translateY(-4px); color: var(--lime) !important; }
+
+/* تدرج كارت المجتمع */
+.community-card { background: linear-gradient(90deg, #c8ff00, #00e676); }
+
+@media (max-width: 575px) {
+  .icon-circle { width: 60px; height: 60px; }
+  .social-btn { width: 50px; height: 50px; }
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  --bs-border-color: #1b2536;   /* الخط الفاصل الأزرق الغامق */
+}
+
+.footer-link {
+  color: var(--bs-secondary-color);
+  text-decoration: none;
+  transition: color .3s ease;
+}
+.footer-link:hover { color: var(--lime); }
